@@ -4,5 +4,10 @@
     height: 100px;
 }
 .liUsuario {
-    margin-left: 5%
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.container-fluid, .navbar-brand, .nav-link{
+    color: white;
 }
