@@ -15,7 +15,7 @@
               </li>
               <li class="nav-item">
                 <!-- si no hay sesión iniciada, no se muestra-->
-                <a class="nav-link" routerLink="favoritos" *ngIf="this.auth.isLoged" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Portfolio</a>
+                <a class="nav-link" routerLink="portfolio" *ngIf="this.auth.isLoged" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Portfolio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" routerLink="login" *ngIf="!this.auth.isLoged" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Iniciar Sesion</a>
