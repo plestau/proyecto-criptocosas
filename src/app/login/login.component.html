@@ -1,0 +1,17 @@
+<form>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="email" id="username" placeholder="Ingresar usuario" [(ngModel)]="email">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Ingresar contraseña" [(ngModel)]="password">
+    </div>
+    <br>
+    <div class="form-group botones">
+        <button class="btn btn-primary" (click)="iniciarSesion()">Iniciar Sesión</button>
+        <button class="btn btn-primary" (click)="registrate()">Registrate</button>
+        <button class="btn btn-primary" id="googleBtn" (click)="iniciarSesionGoogle()"><i class="fa-brands fa-google">Inicia sesión con Google</i></button>
+    </div>
+</form>
