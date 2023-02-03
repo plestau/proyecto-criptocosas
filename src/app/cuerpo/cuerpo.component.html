@@ -2,10 +2,10 @@
     <div id="barraFiltrado">
         <h3>Buscar criptomoneda:</h3>
         <input type="text" [(ngModel)]="palabra_filtrar" (keyup)="filtrarPorNombre()" name="filtrar">
-        <button style="margin-left: 1%;" class="btn btn-primary" *ngIf="arrayFiltrado.length > 0" (click)="anadirParaBuscar('cerrarLista')">Cerrar lista X</button>
+        <button style="margin-left: 1%;" class="btn btn-primary" *ngIf="arrayFiltrado.length > 0" (click)="anadirParaBuscar('cerrarLista')">Eliminar búsqueda X</button>
         <ul id="barraFiltradoUl">
             <li *ngFor="let moneda of arrayFiltrado">
-                {{moneda.name}} <button class="botonFav" (click)="anadirParaBuscar(moneda.id)">⭐</button>
+                {{moneda.name}} <button (click)="anadirParaBuscar(moneda.id)"><i class="fa-solid fa-heart"></i></button>
             </li>
         </ul>
     </div>
@@ -28,11 +28,12 @@
                 <td>{{moneda.name}}</td>
                 <td >${{moneda.symbol}}</td>
                 <td>{{moneda.market_data.current_price.eur}} EUR</td>
-                <td class="moneda_cambio" [ngClass]="moneda.price_change_percentage_24h> 0 ? 'text-success': 'text-danger'">{{moneda.price_change_percentage_24h}}%</td>
-                <td>{{moneda.market_data.market_cap.eur}} EUR</td>
-                <td>{{moneda.market_data.total_volume.eur}} EUR</td>
+                <!--Ultimas 24h si están en negativo, en rojo, y verde si es positivo-->
+                <td [ngStyle]="{'color': moneda.market_data.price_change_percentage_24h_in_currency.eur > 0 ? 'green' : 'red'}">{{moneda.market_data.price_change_percentage_24h_in_currency.eur}} %</td>
+                <td>{{moneda.market_data.market_cap.eur}} euros</td>
+                <td>{{moneda.market_data.total_volume.eur}} euros</td>
                 <td><button class="btn btn-primary" (click)="verDetalle(moneda.id)">Ver detalle</button></td>
-                <td><button class="btn btn-primary" (click)="borrarDiv(moneda.id)">Borrar</button></td>
+                <td><button class="btn btn-primary" (click)="borrarDiv(moneda.id)"><i class="fa-solid fa-trash"></i></button></td>
             </tr>
         </table>
     </div>

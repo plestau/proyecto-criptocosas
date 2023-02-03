@@ -21,7 +21,7 @@ export class AuthService {
       const errorMessage = error.message;
     });
   }
-  registrate(email: any, password: any) {
+  registrarse(email: any, password: any) {
     if (email == '' || password == '') {
       return;
     }
@@ -69,21 +69,6 @@ export class AuthService {
   ngOnInit() {
     this.comprobarSiEstaLogeado();
   }
-  // devolverUsuario() {
-  //   return new Promise((resolve, reject) => {
-  //     onAuthStateChanged(this.auth, (user) => {
-  //       if (user) {
-  //         this.isLoged = true;
-  //         this.usuario = user;
-  //         resolve(user);
-  //       } else {
-  //         this.isLoged = false;
-  //         this.usuario = null;
-  //         resolve(user);
-  //       }
-  //     });
-  //   });
-  // }
   cerrarSesion() {
     this.auth.signOut();
     alert('Sesión cerrada');

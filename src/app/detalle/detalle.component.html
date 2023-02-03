@@ -4,23 +4,23 @@
         <h2 *ngIf="moneda.name != ''">{{moneda.name}}</h2>
         <p>${{moneda.symbol}}</p>
     </div>
-    <div class="segundaSeccion">
+    <div class="dineros">
         <h2 *ngIf="moneda.market_data.current_price.eur != ''">{{moneda.market_data.current_price.eur}} €</h2>
-        <div class="segundaSeccionDiv">
-            <div class="precioRojo">
-                <label for="precioRojo"><b>Low 24h</b></label>
-                <p name="precioVerde" class="precioRojo" *ngIf="moneda.market_data.low_24h.eur != ''">{{moneda.market_data.low_24h.eur}} €</p>
+        <div class="dinerosDiv">
+            <div class="negativo">
+                <label for="negativo"><b>Low 24h</b></label>
+                <p name="positivo" class="negativo" *ngIf="moneda.market_data.low_24h.eur != ''">{{moneda.market_data.low_24h.eur}} €</p>
             </div>
-            <div class="precioVerde">
-                <label for="precioVerde"><b>High 24h</b></label>
-                <p class="precioVerde" name="precioVerde" *ngIf="moneda.market_data.high_24h.eur != ''">{{moneda.market_data.high_24h.eur}} €</p>
+            <div class="positivo">
+                <label for="positivo"><b>High 24h</b></label>
+                <p class="positivo" name="positivo" *ngIf="moneda.market_data.high_24h.eur != ''">{{moneda.market_data.high_24h.eur}} €</p>
             </div>
         </div>
     </div>
     <div class="terceraSeccion">
-        <p *ngIf="moneda.market_data.last_updated != ''"><b>Actualizado por última vez:</b> {{moneda.market_data.last_updated}}</p>
+        <p *ngIf="moneda.market_data.last_updated != ''"><b>Actualizado por última vez hace:</b> {{moneda.market_data.last_updated}}</p>
         <p *ngIf="moneda.market_data.market_cap.eur != ''"><b>Market cap: </b> {{ moneda.market_data.market_cap.eur}}</p>
-        <p *ngIf="moneda.genesis_date != ''"><b>Fecha en la que surgió: </b> {{moneda.genesis_date}}</p>
+        <p *ngIf="moneda.genesis_date != ''"><b>Cuando se creó: </b> {{moneda.genesis_date}}</p>
     </div>
     <div class="cuartaSeccion">
         <b>Descripción: </b>
@@ -36,13 +36,13 @@
                 
             </li>
             <li *ngIf="moneda.links.repos_url.github.length > 0">
-                <a [href]="moneda.links.repos_url.github[0]"><img style="width: 30px;" src="../../assets/img/git.svg" alt="imagen del producto"> {{moneda.name}} github</a>
+                <a [href]="moneda.links.repos_url.github[0]"><i class="fa-brands fa-github">{{moneda.name}} github</i></a> 
             </li>
             <li *ngIf="moneda.links.twitter_screen_name != ''">
-                <a [href]="'https://twitter.com/'+moneda.links.twitter_screen_name"><i class="fa-brands fa-twitter">"{{moneda.name}} twitter</i></a>
+                <a [href]="'https://twitter.com/'+moneda.links.twitter_screen_name"><i class="fa-brands fa-twitter"> {{moneda.name}} twitter</i></a>
             </li>
             <li *ngIf="moneda.links.facebook_username != ''">
-                <a [href]="'https://facebook.com/'+moneda.links.facebook_username"><i class="fa-brands fa-facebook">" {{moneda.name}} facebook</i></a>
+                <a [href]="'https://facebook.com/'+moneda.links.facebook_username"><i class="fa-brands fa-facebook"> {{moneda.name}} facebook</i></a>
             </li>
         </ul>
     </div>

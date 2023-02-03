@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  
+  eligenos (){
+    alert("Por favor, dirígete a registro para poder acceder a la aplicación");
+  }
 }

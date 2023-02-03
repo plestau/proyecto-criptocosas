@@ -21,6 +21,7 @@ export class PortfolioComponent {
         const collectionBD = collection(firestore, 'items');
         this.arrayBuscar$ = collectionData(query(collectionBD, where("nombre", "==", this.emailUsuario)));
         this.TrataInformacionCryptos();
+        // intervalo para que se actualice cada 5 segundos
         // setInterval(() => {
         //   this.TrataInformacionCryptos();
         // }, 5000);
