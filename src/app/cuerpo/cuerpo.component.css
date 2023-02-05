@@ -12,9 +12,6 @@
     margin-top: 5%;
     text-align: center;
 }
-/* #barraFiltrado input {
-    width: 100%;
-} */
 #barraFiltradoUl {
     overflow: hidden;
     overflow-y: scroll;

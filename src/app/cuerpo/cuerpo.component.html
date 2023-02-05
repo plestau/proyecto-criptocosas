@@ -5,11 +5,11 @@
         <button style="margin-left: 1%;" class="btn btn-primary" *ngIf="arrayFiltrado.length > 0" (click)="anadirParaBuscar('cerrarLista')">Eliminar búsqueda X</button>
         <ul id="barraFiltradoUl">
             <li *ngFor="let moneda of arrayFiltrado">
+                <img [src]="moneda.image.small" [alt]="moneda.name">
                 {{moneda.name}} <button (click)="anadirParaBuscar(moneda.id)"><i class="fa-solid fa-heart"></i></button>
             </li>
         </ul>
     </div>
-    
     <div id="fav" *ngIf="crypto.length">
         <table>
             <tr>

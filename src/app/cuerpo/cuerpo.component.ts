@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./cuerpo.component.css']
 })
 export class CuerpoComponent {
+  isLoged:any;
+  sesionIniciada : string = this.auth.isLoged;
   firebase: any;
   emailUsuario = '';
   constructor(firestore: Firestore,private http: HttpClient, private auth:AuthService, private router:Router) {
@@ -31,7 +33,6 @@ export class CuerpoComponent {
 
   ngOnInit() {
     this.lanzaPeticionAjax();
-    
   }
   verDetalle(id:any) {
     this.router.navigate(['/detalle/' + id]);
@@ -53,23 +54,23 @@ export class CuerpoComponent {
       this.arrayFiltrado = [];
       return;
     }
-    // comprueba si existe la moneda en el array que nos traemos de la base de datos
-    // si existe no hace nada y si no existe la añade
+
     for(let i = 0; i < this.crypto.length; i++){
-      if(this.crypto[i].id == moneda){
+      if(this.crypto[i].id == moneda+this.auth.isLoged.email){
         this.palabra_filtrar = '';
         this.arrayFiltrado = [];
         return;
       }
     }
-    await setDoc(doc(this.firebase, "items", moneda), {
+    await setDoc(doc(this.firebase, "items", moneda+this.auth.isLoged.email), {
       moneda: moneda,
       nombre: this.emailUsuario
     });
     this.palabra_filtrar = '';
     this.arrayFiltrado = [];
   }
-  async borrarDiv(id:any){
-    await deleteDoc(doc(this.firebase, "items", id));
+  borrarDiv(id:any){
+    deleteDoc(doc(this.firebase, "items", id+this.auth.isLoged.email));
+    alert("Se ha borrado la moneda de favoritos");  
   }
 }

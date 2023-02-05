@@ -76,5 +76,7 @@ export class AuthService {
   getInfoCrypto(moneda:any) {
     return this.http.get('https://api.coingecko.com/api/v3/coins/'+moneda)
   }
-  
+  getInfoPrimeras(){
+    return this.http.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=50&page=1&sparkline=false')
+  } 
 }

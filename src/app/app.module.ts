@@ -18,6 +18,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { PrimerasComponent } from './primeras/primeras.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DetalleComponent } from './detalle/detalle.component';
     LoginComponent,
     LogoutComponent,
     DetalleComponent,
+    PrimerasComponent,
   ],
   imports: [
     BrowserModule,

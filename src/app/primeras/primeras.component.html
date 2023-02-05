@@ -1,0 +1,43 @@
+<!--muestra las primeras 50 monedas-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Primeras 50 monedas</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cambio 24h</th>
+            <th scope="col">Capitalización</th>
+            <th scope="col">Volumen 24h</th>
+            <th scope="col">Circulación</th>
+            <th scope="col">Añadir/Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let moneda of primeras">
+            <td>
+                <img [src]="moneda.image" [alt]="moneda.name" style="width:2rem;" />
+                <span class="nombre ms-4">{{moneda.name}}</span>
+                <span class="text-muted text-uppercase ms-2">${{moneda.symbol}}</span>
+            </td>
+            <td>{{moneda.current_price.toLocaleString()}}€</td>
+            <!-- el cambio en 24h si es negatico, se muetra en rojo, y en verde si es positivo-->
+            <td [ngStyle]="{'color': moneda.price_change_percentage_24h > 0 ? 'green' : 'red'}">{{moneda.price_change_percentage_24h}}%</td>
+            <td>{{moneda.market_cap.toLocaleString()}}</td>
+            <td>{{moneda.total_volume.toLocaleString()}}</td>
+            <td>{{moneda.circulating_supply}} monedas</td>
+            <!-- boton que al pulsar, se ejecuta guardarFavorito(), si ya estaba en favoritos, se oculta-->
+            <td><button class="btn btn-primary" (click)="guardarFavorito(moneda.id)"><i class="fa-solid fa-heart"></i></button>
+            <!-- boton que al pulsar, se ejecuta borrarFavorito(), si no estaba en favoritos, se oculta-->
+            <button class="btn btn-primary" (click)="borrarFavorito(moneda.id)"><i class="fa-solid fa-trash"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
