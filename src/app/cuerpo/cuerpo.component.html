@@ -10,7 +10,11 @@
             </li>
         </ul>
     </div>
+    <div id="fav" *ngIf="!crypto.length">
+        <h3>No hay monedas guardadas</h3>
+    </div>
     <div id="fav" *ngIf="crypto.length">
+        <h3>Monedas guardadas</h3>
         <table>
             <tr>
                 <th>Imagen</th>
@@ -30,8 +34,8 @@
                 <td>{{moneda.market_data.current_price.eur}} EUR</td>
                 <!--Ultimas 24h si están en negativo, en rojo, y verde si es positivo-->
                 <td [ngStyle]="{'color': moneda.market_data.price_change_percentage_24h_in_currency.eur > 0 ? 'green' : 'red'}">{{moneda.market_data.price_change_percentage_24h_in_currency.eur}} %</td>
-                <td>{{moneda.market_data.market_cap.eur}} euros</td>
-                <td>{{moneda.market_data.total_volume.eur}} euros</td>
+                <td>{{moneda.market_data.market_cap.eur.toLocaleString()}} euros</td>
+                <td>{{moneda.market_data.total_volume.eur.toLocaleString()}} monedas</td>
                 <td><button class="btn btn-primary" (click)="verDetalle(moneda.id)">Ver detalle</button></td>
                 <td><button class="btn btn-primary" (click)="borrarDiv(moneda.id)"><i class="fa-solid fa-trash"></i></button></td>
             </tr>

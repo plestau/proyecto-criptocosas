@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/angular-coingecko-api",
     "ignore": [
       "firebase.json",
       "**/.*",

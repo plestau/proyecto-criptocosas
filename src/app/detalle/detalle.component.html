@@ -5,21 +5,21 @@
         <p>${{moneda.symbol}}</p>
     </div>
     <div class="dineros">
-        <h2 *ngIf="moneda.market_data.current_price.eur != ''">{{moneda.market_data.current_price.eur}} €</h2>
+        <h2 *ngIf="moneda.market_data.current_price.eur != ''">{{moneda.market_data.current_price.eur.toLocaleString()}} €</h2>
         <div class="dinerosDiv">
             <div class="negativo">
                 <label for="negativo"><b>Low 24h</b></label>
-                <p name="positivo" class="negativo" *ngIf="moneda.market_data.low_24h.eur != ''">{{moneda.market_data.low_24h.eur}} €</p>
+                <p name="positivo" class="negativo" *ngIf="moneda.market_data.low_24h.eur != ''">{{moneda.market_data.low_24h.eur.toLocaleString()}} €</p>
             </div>
             <div class="positivo">
                 <label for="positivo"><b>High 24h</b></label>
-                <p class="positivo" name="positivo" *ngIf="moneda.market_data.high_24h.eur != ''">{{moneda.market_data.high_24h.eur}} €</p>
+                <p class="positivo" name="positivo" *ngIf="moneda.market_data.high_24h.eur != ''">{{moneda.market_data.high_24h.eur.toLocaleString()}} €</p>
             </div>
         </div>
     </div>
     <div class="terceraSeccion">
-        <p *ngIf="moneda.market_data.last_updated != ''"><b>Actualizado por última vez hace:</b> {{moneda.market_data.last_updated}}</p>
-        <p *ngIf="moneda.market_data.market_cap.eur != ''"><b>Market cap: </b> {{ moneda.market_data.market_cap.eur}}</p>
+        <p *ngIf="moneda.market_data.last_updated != ''"><b>Actualizado por última vez hace:</b> {{moneda.market_data.last_updated.to}}</p>
+        <p *ngIf="moneda.market_data.market_cap.eur != ''"><b>Market cap: </b> {{ moneda.market_data.market_cap.eur.toLocaleString()}}</p>
         <p *ngIf="moneda.genesis_date != ''"><b>Cuando se creó: </b> {{moneda.genesis_date}}</p>
     </div>
     <div class="cuartaSeccion">

@@ -27,14 +27,11 @@
                 <span class="text-muted text-uppercase ms-2">${{moneda.symbol}}</span>
             </td>
             <td>{{moneda.current_price.toLocaleString()}}€</td>
-            <!-- el cambio en 24h si es negatico, se muetra en rojo, y en verde si es positivo-->
             <td [ngStyle]="{'color': moneda.price_change_percentage_24h > 0 ? 'green' : 'red'}">{{moneda.price_change_percentage_24h}}%</td>
             <td>{{moneda.market_cap.toLocaleString()}}</td>
             <td>{{moneda.total_volume.toLocaleString()}}</td>
             <td>{{moneda.circulating_supply}} monedas</td>
-            <!-- boton que al pulsar, se ejecuta guardarFavorito(), si ya estaba en favoritos, se oculta-->
             <td><button class="btn btn-primary" (click)="guardarFavorito(moneda.id)"><i class="fa-solid fa-heart"></i></button>
-            <!-- boton que al pulsar, se ejecuta borrarFavorito(), si no estaba en favoritos, se oculta-->
             <button class="btn btn-primary" (click)="borrarFavorito(moneda.id)"><i class="fa-solid fa-trash"></i></button></td>
           </tr>
         </tbody>
