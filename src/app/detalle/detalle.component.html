@@ -5,31 +5,34 @@
         <p>${{moneda.symbol}}</p>
     </div>
     <div class="dineros">
-        <h2 *ngIf="moneda.market_data.current_price.eur != ''">{{moneda.market_data.current_price.eur.toLocaleString()}} €</h2>
+        <h2 *ngIf="moneda.market_data.current_price.eur != ''">Precio actual: {{moneda.market_data.current_price.eur.toLocaleString()}} €</h2>
         <div class="dinerosDiv">
             <div class="negativo">
-                <label for="negativo"><b>Low 24h</b></label>
+                <label for="negativo"><b>Valor más bajo en 24h</b></label>
                 <p name="positivo" class="negativo" *ngIf="moneda.market_data.low_24h.eur != ''">{{moneda.market_data.low_24h.eur.toLocaleString()}} €</p>
             </div>
             <div class="positivo">
-                <label for="positivo"><b>High 24h</b></label>
+                <label for="positivo"><b>Valor más alto en 24h</b></label>
                 <p class="positivo" name="positivo" *ngIf="moneda.market_data.high_24h.eur != ''">{{moneda.market_data.high_24h.eur.toLocaleString()}} €</p>
             </div>
         </div>
     </div>
-    <div class="terceraSeccion">
-        <p *ngIf="moneda.market_data.last_updated != ''"><b>Actualizado por última vez hace:</b> {{moneda.market_data.last_updated.to}}</p>
-        <p *ngIf="moneda.market_data.market_cap.eur != ''"><b>Market cap: </b> {{ moneda.market_data.market_cap.eur.toLocaleString()}}</p>
+    <div class="datos">
+        <p *ngIf="moneda.market_data.last_updated != ''"><b>Actualizado por última vez:</b> {{moneda.market_data.last_updated | date: 'medium'}}</p>
+        <p *ngIf="moneda.market_data.market_cap.eur != ''"><b>Capital actual: </b> {{ moneda.market_data.market_cap.eur.toLocaleString()}}</p>
         <p *ngIf="moneda.genesis_date != ''"><b>Cuando se creó: </b> {{moneda.genesis_date}}</p>
     </div>
-    <div class="cuartaSeccion">
-        <b>Descripción: </b>
+    <div class="description">
+        <h2>Descripción: </h2>
         <p *ngIf="moneda.description.es != ''">{{moneda.description.es}}</p>
         <p *ngIf="moneda.description.en != '' && moneda.description.es == ''">{{moneda.description.en}}</p>
         <p *ngIf="moneda.description.en != '' && moneda.description.es != ''">Descripción no disponible</p>
     </div>
-    <div class="quintaSeccion">
-        <b>Enlaces: </b>
+    <div class="tabla">
+        
+    </div>
+    <div class="links">
+        <h2>Enlaces: </h2>
         <ul>
             <li *ngIf="moneda.links.homepage[0] != ''">
                 <a [href]="moneda.links.homepage[0]"><img style="width: 30px;" src="{{moneda.image.small}}" alt="imagen del producto"> {{moneda.name}} home page</a>
@@ -48,7 +51,8 @@
     </div>
     <div class="descripcion"></div>
     <div class="grafico">
-        
+        <h2>Tabla de precios</h2>
+        <p>No puedo hacerla :(</p>
     </div>
     <div class="volver">
         <a routerLink="/portfolio">Volver a portfolio</a>

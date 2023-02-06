@@ -31,8 +31,10 @@
             <td>{{moneda.market_cap.toLocaleString()}}</td>
             <td>{{moneda.total_volume.toLocaleString()}}</td>
             <td>{{moneda.circulating_supply}} monedas</td>
-            <td><button class="btn btn-primary" (click)="guardarFavorito(moneda.id)"><i class="fa-solid fa-heart"></i></button>
-            <button class="btn btn-primary" (click)="borrarFavorito(moneda.id)"><i class="fa-solid fa-trash"></i></button></td>
+            <td>
+              <button class="btn btn-primary" *ngIf="!moneda.esFav" (click)="guardarFavorito(moneda.id)"><i class="fa-solid fa-heart"></i></button>
+              <button class="btn btn-primary" *ngIf="moneda.esFav" (click)="borrarFavorito(moneda.id)"><i class="fa-solid fa-trash"></i></button>
+            </td>
           </tr>
         </tbody>
       </table>

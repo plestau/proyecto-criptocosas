@@ -11,6 +11,6 @@ export class LogoutComponent {
   constructor(private auth:AuthService, private router:Router) {}
   ngOnInit() {
     this.auth.cerrarSesion();
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/']);
   }
 }

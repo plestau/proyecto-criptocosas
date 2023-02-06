@@ -17,5 +17,4 @@ export class CabeceraComponent {
       this.emailUsuario = this.auth.isLoged.email;
     }
   }
-  
 }

@@ -17,7 +17,6 @@ export class DetalleComponent {
       this.auth.getInfoCrypto(this.nombreMoneda).subscribe(
         (json:any) => {
           this.moneda = json;
-          console.log(this.moneda);
         }
       );
      }

@@ -11,12 +11,11 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'portfolio', component:  PortfolioComponent},
-  { path: 'inicio', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LogoutComponent},
   { path: 'primeras', component: PrimerasComponent},
   { path: 'detalle/:id', component: DetalleComponent},
-  { path: '**', redirectTo: '/inicio'},
+  { path: '**', redirectTo: ''},
   
 ];
 

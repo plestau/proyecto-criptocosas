@@ -19,7 +19,9 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { PrimerasComponent } from './primeras/primeras.component';
+import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component'
 
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { PrimerasComponent } from './primeras/primeras.component';
     LogoutComponent,
     DetalleComponent,
     PrimerasComponent,
+    CanvasJSChart
   ],
   imports: [
     BrowserModule,
