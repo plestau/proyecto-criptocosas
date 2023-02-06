@@ -2,4 +2,4 @@
 
 Link en producción: https://criptocosas-f0e38.web.app/
 
-Cosas que le faltan y me gustaría añadir: posibilidad de comprar monedas.
+Cosas que le faltan y me gustaría añadir: Ponere en producción bien, posibilidad de comprar monedas, asegurar los links, hacer consultas compuestas en la firestore para ordenar las monedas guardadas por filtro.
